@@ -4,6 +4,7 @@ using BeerRater.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace BeerRater.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20220707004426_Added Entity Tables")]
+    partial class AddedEntityTables
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -35,8 +37,10 @@ namespace BeerRater.Data.Migrations
                         .HasMaxLength(50)
                         .HasColumnType("nvarchar(50)");
 
-                    b.Property<int>("BeerTypeId")
-                        .HasColumnType("int");
+                    b.Property<string>("BeerType")
+                        .IsRequired()
+                        .HasMaxLength(15)
+                        .HasColumnType("nvarchar(15)");
 
                     b.Property<string>("Brewery")
                         .IsRequired()
@@ -52,28 +56,9 @@ namespace BeerRater.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("BeerTypeId");
-
                     b.HasIndex("BreweryId");
 
                     b.ToTable("Beers");
-                });
-
-            modelBuilder.Entity("BeerRater.Data.BeerType", b =>
-                {
-                    b.Property<int>("TypeId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("TypeId"), 1L, 1);
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("TypeId");
-
-                    b.ToTable("BeerTypes");
                 });
 
             modelBuilder.Entity("BeerRater.Data.Brewery", b =>
@@ -338,17 +323,9 @@ namespace BeerRater.Data.Migrations
 
             modelBuilder.Entity("BeerRater.Data.Beer", b =>
                 {
-                    b.HasOne("BeerRater.Data.BeerType", "BeerType")
-                        .WithMany()
-                        .HasForeignKey("BeerTypeId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
                     b.HasOne("BeerRater.Data.Brewery", null)
                         .WithMany("Beers")
                         .HasForeignKey("BreweryId");
-
-                    b.Navigation("BeerType");
                 });
 
             modelBuilder.Entity("BeerRater.Data.Rating", b =>

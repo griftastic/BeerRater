@@ -2,7 +2,7 @@
 using Microsoft.EntityFrameworkCore.Migrations;
 using System;
 
-namespace BeerRater.WebMVC.Data.Migrations
+namespace BeerRater.Data.Migrations
 {
     public partial class CreateIdentitySchema : Migration
     {
