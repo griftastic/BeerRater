@@ -15,9 +15,11 @@ namespace BeerRater.Data
         [Required]
         [MaxLength(50, ErrorMessage ="There are too many characters in this field.")]
         public string BeerName { get; set; }
-        [Required]
-        public string Brewery { get; set; }
         
+        [ForeignKey(nameof(Brewery))]
+        public int BreweryId { get; set; }
+        
+        public virtual Brewery Breweries { get; set; }
         [ForeignKey(nameof(BeerType))]
         public int BeerTypeId { get; set; }
         public virtual BeerType BeerType { get; set; }

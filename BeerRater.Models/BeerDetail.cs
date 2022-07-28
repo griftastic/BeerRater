@@ -14,6 +14,7 @@ namespace BeerRater.Models
         public int Id { get; set; }
         public string BeerName { get; set; }
         public string Brewery { get; set; }
+        [Display(Name = "Type")]
         public string BeerTypeName { get; set; }
         public int BeerTypeId { get; set; }
         public string Description { get; set; }

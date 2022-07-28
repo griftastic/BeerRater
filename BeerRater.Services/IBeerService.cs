@@ -11,6 +11,9 @@ namespace BeerRater.Services
         bool EditBeer(BeerEdit model);
         
         bool SetUserIdInService(Guid userId);
+        bool DeleteBeer(int id);
         List<BeerType> BeerTypeList();
+        List<Brewery> BreweryList();
+
     }
 }

@@ -6,9 +6,11 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using System.Security.Claims;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.AspNetCore.Authorization;
 
 namespace BeerRater.WebMVC.Controllers
 {
+        [Authorize]
     public class BeerController : Controller
 
     {
@@ -32,7 +34,9 @@ namespace BeerRater.WebMVC.Controllers
         public ActionResult Create()
         {
             var typeList = _beerService.BeerTypeList();
+            var typeList2 = _beerService.BreweryList();
             ViewBag.BeerTypeId = new SelectList(typeList, "TypeId", "Name");
+            ViewBag.BreweryId = new SelectList(typeList2, "Id", "Name");
             return View();
         }
 
@@ -52,7 +56,7 @@ namespace BeerRater.WebMVC.Controllers
 
             //var userId = Guid.Parse(User.Identity.GetUserId());
             //var service = new BeerService(userId);
-            if(!_beerService.SetUserIdInService(GetUserId())) return Unauthorized();
+            if (!_beerService.SetUserIdInService(GetUserId())) return Unauthorized();
             _beerService.CreateBeer(model);
             TempData["SaveResult"] = "Your beer was created.";
             return RedirectToAction("Index");
@@ -78,6 +82,7 @@ namespace BeerRater.WebMVC.Controllers
             return View(model);
         }
 
+
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Edit(int id, BeerEdit model)
@@ -98,6 +103,26 @@ namespace BeerRater.WebMVC.Controllers
             ModelState.AddModelError("", "Your beer could not be updated.");
             return View(model);
         }
+
+        [ActionName("Delete")]
+        public ActionResult Delete(int id)
+        {
+            
+            var model = _beerService.GetBeerById(id);
+
+            return View(model);
+        }
+
+        [HttpPost]
+        [ActionName("Delete")]
+        [ValidateAntiForgeryToken]
+        public ActionResult DeleteBeer(int id)
+        {
+            _beerService.DeleteBeer(id);
+            TempData["SaveResult"] = "Your Beer was deleted";
+            return RedirectToAction("Index");
+        }
+
 
         private Guid GetUserId()
         {

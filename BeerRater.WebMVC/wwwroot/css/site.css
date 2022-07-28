@@ -1,5 +1,13 @@
 html {
-  font-size: 14px;
+    font-family: Helvetica, 'Times New Roman';
+    font-size: 50px;
+    background-color: rgb(96, 108, 56);
+    background-size: 100vw;
+}
+.background {
+    background-color: rgb(40, 54, 24);
+    /*    box-shadow: 0 30px 40px rgba(0,0,0,.1);
+*/
 }
 
 @media (min-width: 768px) {
@@ -15,4 +23,154 @@ html {
 
 body {
   margin-bottom: 60px;
+}
+
+nav {
+    font-size: 1.5vw;
+}
+
+.navbar-brand {
+    font-size: 
+}
+
+.bg-beer {
+    --bs-bg-opacity: 1;
+    background-color: rgb(254, 250, 224);
+}
+
+.logo-text {
+
+    font-size: 2.5vw;
+
+}
+
+.welcome-text {
+    font-family: 'Montserrat', sans-serif;
+    color: white;
+}
+
+.welcome-header {
+    font-size: 4vw;
+    color: white;
+}
+
+.welcome-para {
+    font-size: 2vw;
+    color: white;
+}
+
+.footer-text {
+    font-size: 1vw;
+    color: white;
+}
+
+.index-header-flex {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.fade-in-color {
+    background-color: rgb(96, 108, 56);
+}
+
+.btn-size {
+    height: 3rem;
+    display: flex;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+.controller-header {
+    padding-top: 2rem;
+    font-size: 4vw;
+    color: rgb(254, 250, 224);
+}
+
+.controller-link {
+    color: rgb(221, 161, 94);
+}
+
+.table-text {
+    font-size: 1.5vw;
+    color: rgb(40, 54, 24s);
+}
+
+dt .card-text{
+    color: rgb(40, 54, 24);
+}
+
+
+/*CARDS*/
+.card-flex {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.card2 {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    min-width: 0;    word-wrap: break-word;
+    background-color: rgb(254, 250, 224);
+    background-clip: border-box;
+    border: 1px solid rgba(0, 0, 0, 0.125);
+    border-radius: 0.75rem;
+    margin-top: .75rem;
+    margin-left: .75rem;
+    margin-right: .75rem;
+    margin-bottom: .75rem;
+}
+
+.card2:hover {
+    transform: scale(1.05);
+    transition: .25s;
+}
+
+
+.btn-primary {
+    color: rgb(254, 250, 224);
+    background-color: rgb(221, 161, 94);
+    border-color: black;
+}
+   
+.btn-primary:hover {
+    background-color: rgb(96, 108, 56); 
+}
+
+.controller-link-flex {
+    display: flex;
+    justify-content: center;
+}
+
+.controller-link-flex:hover {
+    color: rgb(96, 108, 56);
+}
+
+.details-card {
+    position: relative;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    width: 50vw;
+    min-width: 0;
+    word-wrap: break-word;
+    background-color: rgb(254, 250, 224);
+    background-clip: border-box;
+    border: 1px solid rgba(0, 0, 0, 0.125);
+    border-radius: 0.75rem;
+    margin-top: .75rem;
+    margin-left: .75rem;
+    margin-right: .75rem;
+    margin-bottom: .75rem;
+}
+
+.details-container {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
 }

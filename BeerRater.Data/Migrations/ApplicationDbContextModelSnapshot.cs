@@ -38,11 +38,7 @@ namespace BeerRater.Data.Migrations
                     b.Property<int>("BeerTypeId")
                         .HasColumnType("int");
 
-                    b.Property<string>("Brewery")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int?>("BreweryId")
+                    b.Property<int>("BreweryId")
                         .HasColumnType("int");
 
                     b.Property<string>("Description")
@@ -84,6 +80,9 @@ namespace BeerRater.Data.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
+                    b.Property<int>("BeerId")
+                        .HasColumnType("int");
+
                     b.Property<string>("Description")
                         .IsRequired()
                         .HasMaxLength(300)
@@ -120,8 +119,8 @@ namespace BeerRater.Data.Migrations
                         .HasMaxLength(300)
                         .HasColumnType("nvarchar(300)");
 
-                    b.Property<int>("Score")
-                        .HasColumnType("int");
+                    b.Property<double>("Score")
+                        .HasColumnType("float");
 
                     b.Property<string>("UserId")
                         .IsRequired()
@@ -344,22 +343,26 @@ namespace BeerRater.Data.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("BeerRater.Data.Brewery", null)
+                    b.HasOne("BeerRater.Data.Brewery", "Breweries")
                         .WithMany("Beers")
-                        .HasForeignKey("BreweryId");
+                        .HasForeignKey("BreweryId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("BeerType");
+
+                    b.Navigation("Breweries");
                 });
 
             modelBuilder.Entity("BeerRater.Data.Rating", b =>
                 {
-                    b.HasOne("BeerRater.Data.Beer", "Beer")
+                    b.HasOne("BeerRater.Data.Beer", "Beers")
                         .WithMany("Ratings")
                         .HasForeignKey("BeerId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("Beer");
+                    b.Navigation("Beers");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>

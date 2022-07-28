@@ -16,7 +16,11 @@ builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.Requ
     .AddEntityFrameworkStores<ApplicationDbContext>();
 builder.Services.AddControllersWithViews();
 
+builder.Services.AddScoped<IRatingService, RatingService>();
+
 builder.Services.AddScoped<IBeerService, BeerService>();
+builder.Services.AddScoped<IBreweryService, BreweryService>();
+
 
 var app = builder.Build();
 

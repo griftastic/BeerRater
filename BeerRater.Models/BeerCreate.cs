@@ -13,7 +13,7 @@ namespace BeerRater.Models
         [MaxLength(50, ErrorMessage = "There are too many characters in this field.")]
         public string BeerName { get; set; }
         [Required]
-        public string Brewery { get; set; }
+        public int BreweryId { get; set; }
         [Required]
         public int BeerTypeId { get; set; }
         [MaxLength(300, ErrorMessage = "There are too many characters in this field.")]
