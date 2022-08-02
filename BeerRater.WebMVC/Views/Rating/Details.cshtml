@@ -4,45 +4,32 @@
     ViewData["Title"] = "Details";
 }
 
-<h1>Details</h1>
+<div class="details-container">
+<h1 class="controller-header">@Html.DisplayFor(model => model.BeerName)
+ Details</h1>
 
-<div>
-    <h4>RatingDetail</h4>
     <hr />
-    <dl class="row">
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Id)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Id)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.UserId)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.UserId)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.BeerName)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.BeerName)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Review)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Review)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Score)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Score)
-        </dd>
+<div class="details-card">
+
+    <div class="table-text">
+
+    <dl class="row table-text">
+        <div class="details-text">
+            <p><strong>@Html.DisplayNameFor(model => model.UserId):</strong> @Html.DisplayFor(model => model.UserId) </p>
+            <p><strong>@Html.DisplayNameFor(model => model.BeerName):</strong> @Html.DisplayFor(model => model.BeerName) </p>
+            <p><strong>@Html.DisplayNameFor(model => model.Review):</strong> @Html.DisplayFor(model => model.Review) </p>
+            <p><strong>@Html.DisplayNameFor(model => model.Score):</strong> @Html.DisplayFor(model => model.Score) </p>
+        </div>
     </dl>
+
+
+    </div>
+
+
 </div>
 <div>
-    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
-    <a asp-action="Index">Back to List</a>
+    <a class="btn btn-primary" asp-action="Edit" asp-route-id="@Model.Id">Edit</a> |
+    <a class="btn btn-primary" asp-controller="Rating" asp-action="Index">Back to List</a>
 </div>
+</div>
+

@@ -4,46 +4,51 @@
     ViewData["Title"] = "Index";
 }
 
-<h1>Index</h1>
 
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
-<table class="table">
-    <thead>
-        <tr>
-                <th>
-                    @Html.DisplayNameFor(model => model.Id)
-                </th>
-            <th>
-                @Html.DisplayNameFor(model => model.BeerName)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Score)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Id)
-            </td>
-            <td>
-            <a asp-action="Details"  asp-controller="Beer" asp-route-id="@item.BeerId">
-                   @Html.DisplayFor(modelItem => item.BeerName)
-            </a>
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Score)
-            </td>
-            <td>
-                @Html.ActionLink("Edit", "Edit", new {  id=item.Id  }) |
-                @Html.ActionLink("Details", "Details", new { id=item.Id }) |
-                @Html.ActionLink("Delete", "Delete", new { id=item.Id })
-            </td>
-        </tr>
+<div class="index-header-flex">
+    <h1 class="controller-header">Ratings Index</h1>
+    <a class="controller-link btn btn-primary btn-size" asp-action="Create">Rate a Beer</a>
+</div>
+
+@if(TempData.ContainsKey("SaveResult"))
+{
+    <div class="alert alert-success fade-in fade-in-color" role="alert">
+      
+        <button type ="button" data-dismiss="alert">
+            <span>&times;</span>
+        </button>
+            @TempData["SaveResult"]
+    </div>
 }
-    </tbody>
+<table class="table table-text">
+    
+<div class="card-flex">
+    @foreach (var item in Model) {
+
+        <div class="card2" style="width: 18rem;">
+            <div class="card-body">
+                <h5 class="card-title">
+                    <a class="controller-link controller-link-flex" asp-action="Details" asp-route-id="@item.Id">
+                        @Html.DisplayFor(modelItem => item.BeerName)
+                    </a>    
+                </h5>
+                <a  asp-action="Details"  asp-controller="Beer" asp-route-id="@item.BeerId">
+                   @Html.DisplayFor(modelItem => item.BeerName)
+                </a>
+                <p class="card-text"><strong>@Html.DisplayNameFor(model => model.BeerName):</strong> @Html.DisplayFor(modelItem => item.BeerName)</p>
+                <p class="card-text"><strong>@Html.DisplayNameFor(model => model.Score):</strong> @Html.DisplayFor(modelItem => item.Score)</p>
+
+                <div>
+                    <a class="btn btn-primary" asp-action="Edit" asp-route-id="@item.Id">Edit
+                        @*<a class="controller-link" asp-action="Edit" asp-route-id="@item.Id">Edit</a> *@
+                    </a>
+                    <a class="btn btn-primary" asp-action="Delete" asp-route-id="@item.Id">Delete
+                        @*<a class="controller-link" asp-action="Edit" asp-route-id="@item.Id">Edit</a> *@
+                    </a>
+                
+                </div>
+            </div>
+        </div>
+        }
+</div>
 </table>

@@ -9,6 +9,8 @@ namespace BeerRater.Models
     public class RatingEdit
     {
         public int Id { get; set; }
+
+        public string BeerName { get; set; }
         public string Review { get; set; }
         public double Score { get; set; }
     }

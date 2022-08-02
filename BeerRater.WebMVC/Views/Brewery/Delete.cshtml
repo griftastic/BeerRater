@@ -4,7 +4,37 @@
     ViewData["Title"] = "Delete";
 }
 
-<h1 class="controller-header">Delete a Brewery</h1>
+<div class="details-container">
+<h1 class="controller-header">Are you sure you want to delete @Html.DisplayFor(model => model.Name)?</h1>
+
+    <hr />
+<div class="details-card">
+
+    <div class="table-text">
+
+    <dl class="row table-text">
+        <div class="details-text">
+            <p><strong>@Html.DisplayNameFor(model => model.Name):</strong> @Html.DisplayFor(model => model.Name) </p>
+            <p><strong>@Html.DisplayNameFor(model => model.Location):</strong> @Html.DisplayFor(model => model.Location) </p>
+            <p><strong>@Html.DisplayNameFor(model => model.Description):</strong> @Html.DisplayFor(model => model.Description) </p>
+        </div>
+    </dl>
+
+
+    </div>
+
+
+</div>
+    
+    <form  asp-action="Delete">
+        <input class="btn btn-primary" type="submit" value="Delete" class="btn btn-danger" /> |
+        <a class="btn btn-primary" asp-action="Index">Back to List</a>
+    </form>
+
+</div>
+
+
+@*<h1 class="controller-header">Delete a Brewery</h1>
 
 <h3>Are you sure you want to delete this?</h3>
 <div>
@@ -42,3 +72,4 @@
         <a asp-action="Index">Back to List</a>
     </form>
 </div>
+*@

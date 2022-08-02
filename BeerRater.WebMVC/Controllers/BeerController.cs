@@ -10,7 +10,7 @@ using Microsoft.AspNetCore.Authorization;
 
 namespace BeerRater.WebMVC.Controllers
 {
-        [Authorize]
+    [Authorize]
     public class BeerController : Controller
 
     {

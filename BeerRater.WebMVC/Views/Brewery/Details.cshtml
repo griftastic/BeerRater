@@ -4,7 +4,35 @@
     ViewData["Title"] = "Details";
 }
 
-<h1 class="controller-header">Brewery Details</h1>
+<div class="details-container">
+<h1 class="controller-header">@Html.DisplayFor(model => model.Name)
+ Details</h1>
+
+    <hr />
+<div class="details-card">
+
+    <div class="table-text">
+
+    <dl class="row table-text">
+        <div class="details-text">
+            <p><strong>@Html.DisplayNameFor(model => model.Location):</strong> @Html.DisplayFor(model => model.Location) </p>
+            <p><strong>@Html.DisplayNameFor(model => model.Description):</strong> @Html.DisplayFor(model => model.Description) </p>
+        </div>
+    </dl>
+
+
+    </div>
+
+
+</div>
+<div>
+    <a class="btn btn-primary" asp-action="Edit" asp-route-id="@Model.Id">Edit</a> |
+    <a class="btn btn-primary" asp-controller="Brewery" asp-action="Index">Back to List</a>
+</div>
+</div>
+
+
+@*<h1 class="controller-header">Brewery Details</h1>
 
 <div>
     <hr />
@@ -39,3 +67,4 @@
     @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
     <a asp-action="Index">Back to List</a>
 </div>
+*@

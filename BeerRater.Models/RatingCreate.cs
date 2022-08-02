@@ -13,9 +13,13 @@ namespace BeerRater.Models
         [Required]
         [MaxLength(300, ErrorMessage ="There are too many characters in this field")]
         public string Review { get; set; }
+        [Display(Name = "Beer Name")]
+
         public int BeerId { get; set; }
         [Required]
         [Range(1,5, ErrorMessage ="Please choose a number beteween 1 and 5")]
+        [Display(Name = "Score (Select a number between 1 and 5)")]
+
         public int Score { get; set; }
     }
 }

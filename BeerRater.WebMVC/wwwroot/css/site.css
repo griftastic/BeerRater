@@ -21,17 +21,27 @@ html {
   min-height: 100%;
 }
 
-body {
-  margin-bottom: 60px;
-}
 
-nav {
-    font-size: 1.5vw;
+body {
+    margin-bottom: 60px;
 }
 
 .navbar-brand {
-    font-size: 
+    color: rgb(96, 108, 56);
 }
+
+.nav-link {
+    color: rgb(96, 108, 56)
+}
+
+.navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='30' height='30' viewBox='0 0 30 30'%3e%3cpath stroke='rgb(96, 108, 56)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+}
+
+button {
+    color: rgb(96, 108, 56);
+}
+
 
 .bg-beer {
     --bs-bg-opacity: 1;
@@ -88,6 +98,13 @@ nav {
     color: rgb(254, 250, 224);
 }
 
+.controller-header-3 {
+    padding-top: 2rem;
+    font-size: 2vw;
+    color: rgb(254, 250, 224);
+}
+
+
 .controller-link {
     color: rgb(221, 161, 94);
 }
@@ -136,6 +153,7 @@ dt .card-text{
     color: rgb(254, 250, 224);
     background-color: rgb(221, 161, 94);
     border-color: black;
+    margin-top: .5rem;
 }
    
 .btn-primary:hover {
@@ -163,14 +181,65 @@ dt .card-text{
     background-clip: border-box;
     border: 1px solid rgba(0, 0, 0, 0.125);
     border-radius: 0.75rem;
-    margin-top: .75rem;
-    margin-left: .75rem;
-    margin-right: .75rem;
+    padding-top: .75rem;
+    padding-left: .75rem;
+    padding-right: .75rem;
+    padding-bottom: .75rem;
     margin-bottom: .75rem;
 }
+
+
+/*DETAILS*/
 
 .details-container {
     display: flex;
     align-items: center;
     flex-direction: column;
+}
+
+.details-text {
+    display: flex;
+    flex-direction: column;
+/*    margin-left: 2.5rem;
+    margin-top: 2rem;
+*/    font-size: 25px;
+}
+
+/*EDIT*/
+
+.form-flex {
+    margin-bottom: 2rem;
+    display: flex;
+    align-content: center;
+}
+
+.form-flex {
+    display: flex;
+    align-content: center;
+    flex-direction: column;
+}
+
+.form-group2 {
+    display: flex;
+    justify-content: center;
+}
+
+
+.form-card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    width: 50vw;
+    min-width: 0;
+    word-wrap: break-word;
+    background-color: rgb(254, 250, 224);
+    background-clip: border-box;
+    border: 1px solid rgba(0, 0, 0, 0.125);
+    border-radius: 0.75rem;
+    padding-top: .75rem;
+    padding-left: .75rem;
+    padding-right: .75rem;
+    padding-bottom: .75rem;
+    margin-bottom: .75rem;
 }

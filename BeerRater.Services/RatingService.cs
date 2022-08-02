@@ -20,14 +20,17 @@ namespace BeerRater.Services
 
         public bool CreateRating(RatingCreate model)
         {
-            var entity =
-                new Rating()
-                {
-                    UserId = model.UserId,
-                    BeerId = model.BeerId,
-                    Review = model.Review,
-                    Score = model.Score
-                };
+            
+                var entity =
+                    new Rating()
+                    {
+                        UserId = model.UserId,
+                        BeerId = model.BeerId,
+                        Review = model.Review,
+                        Score = model.Score
+                    };
+            
+
 
             _ctx.Ratings.Add(entity);
             return _ctx.SaveChanges() == 1;
@@ -74,7 +77,7 @@ namespace BeerRater.Services
             var entity =
                 _ctx
                     .Ratings
-                    .Single(e => e.Id == model.Id);
+                    .Single(e => e.Id == model.Id/* && e.UserId ==  _userId.ToString()*/);
 
             entity.Review = model.Review;
             entity.Score = model.Score;
