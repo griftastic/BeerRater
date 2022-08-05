@@ -61,7 +61,9 @@ namespace BeerRater.WebMVC.Controllers
             var detail = _ratingService.GetRatingById(id);
             var model =
                 new RatingEdit
-                {
+                {   
+                    Id = detail.Id,
+                    BeerName = detail.BeerName,
                     Review = detail.Review,
                     Score = detail.Score
                 };
@@ -80,7 +82,7 @@ namespace BeerRater.WebMVC.Controllers
                 return View(model);
             }
 
-            if (_ratingService.EditRating(model)) ;
+            if (_ratingService.EditRating(model))
             {
                 TempData["SaveResult"] = "Your rating was updated.";
                 return RedirectToAction("Index");

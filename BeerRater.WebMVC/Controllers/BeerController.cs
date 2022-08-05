@@ -95,7 +95,7 @@ namespace BeerRater.WebMVC.Controllers
                 return View(model);
             }
             
-            if (_beerService.EditBeer(model));
+            if (_beerService.EditBeer(model))
             {
                 TempData["SaveResult"] = "Your beer was updated.";
                 return RedirectToAction("Index");

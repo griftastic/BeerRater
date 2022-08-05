@@ -1,0 +1,16 @@
+﻿@page
+@model RegisterConfirmationModel
+@{
+    ViewData["Title"] = "Register confirmation";
+}
+<div class="details-container">
+
+<h1 class="controller-header"> @ViewData["Title"]</h1>
+
+
+    <a class="btn btn-primary" href="@Model.EmailConfirmationUrl">Click here to confirm your account</a>
+
+</div>
+    }
+}
+

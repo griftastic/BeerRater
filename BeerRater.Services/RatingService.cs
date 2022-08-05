@@ -76,8 +76,8 @@ namespace BeerRater.Services
         {
             var entity =
                 _ctx
-                    .Ratings
-                    .Single(e => e.Id == model.Id/* && e.UserId ==  _userId.ToString()*/);
+                    .Ratings                 
+                    .Single(e => e.Id == model.Id);
 
             entity.Review = model.Review;
             entity.Score = model.Score;

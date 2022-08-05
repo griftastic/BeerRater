@@ -20,6 +20,6 @@ namespace BeerRater.Models
         [Range(1,5, ErrorMessage ="Please choose a number beteween 1 and 5")]
         [Display(Name = "Score (Select a number between 1 and 5)")]
 
-        public int Score { get; set; }
+        public double Score { get; set; }
     }
 }
