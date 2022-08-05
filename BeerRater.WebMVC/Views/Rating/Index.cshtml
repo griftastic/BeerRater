@@ -32,20 +32,13 @@
                         @Html.DisplayFor(modelItem => item.BeerName)
                     </a>    
                 </h5>
-                <a  asp-action="Details"  asp-controller="Beer" asp-route-id="@item.BeerId">
-                   @Html.DisplayFor(modelItem => item.BeerName)
-                </a>
                 <p class="card-text"><strong>@Html.DisplayNameFor(model => model.BeerName):</strong> @Html.DisplayFor(modelItem => item.BeerName)</p>
                 <p class="card-text"><strong>@Html.DisplayNameFor(model => model.Score):</strong> @Html.DisplayFor(modelItem => item.Score)</p>
 
                 <div>
-                    <a class="btn btn-primary" asp-action="Edit" asp-route-id="@item.Id">Edit
-                        @*<a class="controller-link" asp-action="Edit" asp-route-id="@item.Id">Edit</a> *@
-                    </a>
-                    <a class="btn btn-primary" asp-action="Delete" asp-route-id="@item.Id">Delete
-                        @*<a class="controller-link" asp-action="Edit" asp-route-id="@item.Id">Edit</a> *@
-                    </a>
-                
+                    <a class="btn btn-primary" asp-action="Edit" asp-route-id="@item.Id">Edit</a>
+                    <a class="btn btn-primary" asp-action="Details" asp-route-id="@item.Id">Beer Details</a>                    
+                    <a class="btn btn-primary" asp-action="Delete" asp-route-id="@item.Id">Delete</a>
                 </div>
             </div>
         </div>
